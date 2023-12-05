@@ -1,0 +1,25 @@
+Check First in Postman
+Base URL: https://reqres.in/api
+Endpoint: users/2
+Request Body: 
+{
+   "name": "Oim Trust",
+   "job": "Engineering Manager"
+}
+
+
+
+-----< WRITE CODE >-------
+it('Update user', () => {
+       var newUser = {
+           "name": 'Oim Trust',
+           "job": 'Engineering Manager'
+       } 
+       cy.request('PUT', 'https:reqres.in/api/users/2', newUser).then((response) => {
+           expect(response.status).equal(200)
+           expect(response.body.name).to.eq(newUser.name)
+       })
+   })
+   ------TASK--------
+   JSON Schema adalah kosakata yang memungkinkan Anda membuat anotasi dan memvalidasi dokumen JSON. Ini menjelaskan format data Anda yang ada dengan dokumentasi yang jelas, dapat dibaca manusia dan mesin untuk validasi struktural lengkap,
+   berguna untuk pengujian otomatis dan memvalidasi data yang dikirimkan klien.
